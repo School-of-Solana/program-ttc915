@@ -9,7 +9,7 @@
 ### Description
 
 [TODO: Provide a comprehensive description of your dApp. Explain what it does. Be detailed about the core functionality.]
-A decentralized publishing platform application built on Solana. Users can create and publish their own content.
+A decentralized publishing platform application built on Solana. Users can create and publish their own content. SIC
 
 ### Key Features
 
