@@ -10,6 +10,7 @@
 
 [TODO: Provide a comprehensive description of your dApp. Explain what it does. Be detailed about the core functionality.]
 A decentralized publishing platform application built on Solana. Users can create and publish their own content, and other users can vote on it.
+sic
 
 ### Key Features
 
