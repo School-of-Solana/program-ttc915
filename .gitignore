@@ -1,0 +1,67 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+Cargo.lock
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+.turbo/
+target/
+
+# Solana & Anchor
+.anchor/
+.anchor.test.*
+.anchor/program-*
+.anchor/keys/*
+.anchor/test-ledger-*
+.anchorconfig
+.solana/
+**/*.so
+test-ledger/
+.testnet/
+
+# Security
+*.key
+*.keypair
+id.json
+**/*.pdb
+**/*.rs.bk
+
+# Development
+.vercel/
+.netlify
+pids/
+*.pid
+*.pid.lock
+*.seed
+
+# Logs
+*.log
+*.log.*
+logs/
+.pnpm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+
+# IDE specific
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.history/
+!.vscode/extensions.json

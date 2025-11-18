@@ -1,0 +1,22 @@
+# Build artifacts
+.anchor/
+target/
+**/*.rs.bk
+test-ledger/
+
+# Dependencies
+node_modules/
+.yarn/
+.pnp.*
+.pnpm-store/
+.pnpm-debug.log*
+
+# Local development
+.DS_Store
+
+# IDE specific
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
