@@ -1,3 +1,7 @@
 packages:
-  - "frontend"
-  - "anchor_project"
+  - frontend
+  - anchor_project
+
+onlyBuiltDependencies:
+  - bigint-buffer
+  - sharp

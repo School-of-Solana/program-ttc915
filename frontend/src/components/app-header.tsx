@@ -1,12 +1,12 @@
 'use client'
-import { usePathname } from 'next/navigation'
-import { useState } from 'react'
-import Link from 'next/link'
+import { WalletButton } from '@/components/solana/solana-provider'
+import { ThemeSelect } from '@/components/theme-select'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
-import { ThemeSelect } from '@/components/theme-select'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 import { ClusterUiSelect } from './cluster/cluster-ui'
-import { WalletButton } from '@/components/solana/solana-provider'
 
 export function AppHeader({ links = [] }: { links: { label: string; path: string }[] }) {
   const pathname = usePathname()
@@ -21,7 +21,7 @@ export function AppHeader({ links = [] }: { links: { label: string; path: string
       <div className="mx-auto flex justify-between items-center">
         <div className="flex items-baseline gap-4">
           <Link className="text-xl hover:text-neutral-500 dark:hover:text-white" href="/">
-            <span>Test</span>
+            <span>DePress</span>
           </Link>
           <div className="hidden md:flex items-center">
             <ul className="flex gap-4 flex-nowrap items-center">

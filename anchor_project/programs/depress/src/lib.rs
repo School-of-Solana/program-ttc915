@@ -10,7 +10,7 @@ pub mod states;
 use instructions::*;
 use states::reaction::ReactionType;
 
-declare_id!("65eB9Pni2mbcafm3juEZgoN3P52CNwbnSKFChBy14K7D");
+declare_id!("5aQmhcFhVmgtmCdGtffRuMYL9R1WsARAtukzxUttPKKN");
 
 #[program]
 pub mod depress {

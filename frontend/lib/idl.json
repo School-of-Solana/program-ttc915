@@ -1,5 +1,5 @@
 {
-  "address": "65eB9Pni2mbcafm3juEZgoN3P52CNwbnSKFChBy14K7D",
+  "address": "5aQmhcFhVmgtmCdGtffRuMYL9R1WsARAtukzxUttPKKN",
   "metadata": {
     "name": "depress",
     "version": "0.1.0",
@@ -8,19 +8,776 @@
   },
   "instructions": [
     {
-      "name": "initialize",
+      "name": "comment_add",
+      "discriminator": [
+        215,
+        10,
+        22,
+        221,
+        120,
+        68,
+        190,
+        200
+      ],
+      "accounts": [
+        {
+          "name": "comment_author",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "post",
+          "writable": true
+        },
+        {
+          "name": "comment",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "comment_content",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "comment_remove",
+      "discriminator": [
+        10,
+        190,
+        215,
+        145,
+        65,
+        59,
+        112,
+        197
+      ],
+      "accounts": [
+        {
+          "name": "comment_author",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "comment"
+          ]
+        },
+        {
+          "name": "comment",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "dislike_comment",
+      "discriminator": [
+        252,
+        185,
+        13,
+        225,
+        160,
+        175,
+        162,
+        52
+      ],
+      "accounts": [
+        {
+          "name": "comment_reaction",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  67,
+                  79,
+                  77,
+                  77,
+                  69,
+                  78,
+                  84,
+                  95,
+                  82,
+                  69,
+                  65,
+                  67,
+                  84,
+                  73,
+                  79,
+                  78,
+                  95,
+                  83,
+                  69,
+                  69,
+                  68
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "reaction_author"
+              },
+              {
+                "kind": "account",
+                "path": "comment"
+              }
+            ]
+          }
+        },
+        {
+          "name": "comment",
+          "writable": true
+        },
+        {
+          "name": "reaction_author",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "dislike_post",
+      "discriminator": [
+        125,
+        93,
+        11,
+        181,
+        137,
+        91,
+        208,
+        172
+      ],
+      "accounts": [
+        {
+          "name": "post_reaction",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  80,
+                  79,
+                  83,
+                  84,
+                  95,
+                  82,
+                  69,
+                  65,
+                  67,
+                  84,
+                  73,
+                  79,
+                  78,
+                  95,
+                  83,
+                  69,
+                  69,
+                  68
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "reaction_author"
+              },
+              {
+                "kind": "account",
+                "path": "post"
+              }
+            ]
+          }
+        },
+        {
+          "name": "post",
+          "writable": true
+        },
+        {
+          "name": "reaction_author",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "like_comment",
+      "discriminator": [
+        129,
+        249,
+        45,
+        219,
+        85,
+        221,
+        49,
+        38
+      ],
+      "accounts": [
+        {
+          "name": "comment_reaction",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  67,
+                  79,
+                  77,
+                  77,
+                  69,
+                  78,
+                  84,
+                  95,
+                  82,
+                  69,
+                  65,
+                  67,
+                  84,
+                  73,
+                  79,
+                  78,
+                  95,
+                  83,
+                  69,
+                  69,
+                  68
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "reaction_author"
+              },
+              {
+                "kind": "account",
+                "path": "comment"
+              }
+            ]
+          }
+        },
+        {
+          "name": "comment",
+          "writable": true
+        },
+        {
+          "name": "reaction_author",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "like_post",
+      "discriminator": [
+        45,
+        242,
+        154,
+        71,
+        63,
+        133,
+        54,
+        186
+      ],
+      "accounts": [
+        {
+          "name": "post_reaction",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  80,
+                  79,
+                  83,
+                  84,
+                  95,
+                  82,
+                  69,
+                  65,
+                  67,
+                  84,
+                  73,
+                  79,
+                  78,
+                  95,
+                  83,
+                  69,
+                  69,
+                  68
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "reaction_author"
+              },
+              {
+                "kind": "account",
+                "path": "post"
+              }
+            ]
+          }
+        },
+        {
+          "name": "post",
+          "writable": true
+        },
+        {
+          "name": "reaction_author",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "post_add",
+      "discriminator": [
+        213,
+        57,
+        43,
+        18,
+        19,
+        42,
+        253,
+        58
+      ],
+      "accounts": [
+        {
+          "name": "post",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  80,
+                  79,
+                  83,
+                  84,
+                  95,
+                  83,
+                  69,
+                  69,
+                  68
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "post_topic"
+              },
+              {
+                "kind": "account",
+                "path": "post_author"
+              }
+            ]
+          }
+        },
+        {
+          "name": "post_author",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "post_topic",
+          "type": "string"
+        },
+        {
+          "name": "post_content",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "post_remove",
+      "discriminator": [
+        36,
+        177,
+        4,
+        51,
+        75,
+        23,
+        21,
+        253
+      ],
+      "accounts": [
+        {
+          "name": "post",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  80,
+                  79,
+                  83,
+                  84,
+                  95,
+                  83,
+                  69,
+                  69,
+                  68
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "post.topic",
+                "account": "Post"
+              },
+              {
+                "kind": "account",
+                "path": "post_author"
+              }
+            ]
+          }
+        },
+        {
+          "name": "post_author",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "post"
+          ]
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "reaction_remove_comment",
+      "discriminator": [
+        144,
+        102,
+        112,
+        23,
+        197,
+        17,
+        99,
+        254
+      ],
+      "accounts": [
+        {
+          "name": "comment_reaction",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  67,
+                  79,
+                  77,
+                  77,
+                  69,
+                  78,
+                  84,
+                  95,
+                  82,
+                  69,
+                  65,
+                  67,
+                  84,
+                  73,
+                  79,
+                  78,
+                  95,
+                  83,
+                  69,
+                  69,
+                  68
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "reaction_author"
+              },
+              {
+                "kind": "account",
+                "path": "comment"
+              }
+            ]
+          }
+        },
+        {
+          "name": "comment",
+          "writable": true
+        },
+        {
+          "name": "reaction_author",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "comment_reaction"
+          ]
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "reaction_remove_post",
+      "discriminator": [
+        4,
+        136,
+        127,
+        163,
+        38,
+        130,
+        2,
+        115
+      ],
+      "accounts": [
+        {
+          "name": "post_reaction",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  80,
+                  79,
+                  83,
+                  84,
+                  95,
+                  82,
+                  69,
+                  65,
+                  67,
+                  84,
+                  73,
+                  79,
+                  78,
+                  95,
+                  83,
+                  69,
+                  69,
+                  68
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "reaction_author"
+              },
+              {
+                "kind": "account",
+                "path": "post"
+              }
+            ]
+          }
+        },
+        {
+          "name": "post",
+          "writable": true
+        },
+        {
+          "name": "reaction_author",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "post_reaction"
+          ]
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Comment",
+      "discriminator": [
+        150,
+        135,
+        96,
+        244,
+        55,
+        199,
+        50,
+        65
+      ]
+    },
+    {
+      "name": "Post",
+      "discriminator": [
+        8,
+        147,
+        90,
+        186,
+        185,
+        56,
+        192,
+        150
+      ]
+    },
+    {
+      "name": "ReactionComment",
+      "discriminator": [
+        139,
+        28,
+        173,
+        46,
+        70,
+        150,
+        236,
+        129
+      ]
+    },
+    {
+      "name": "ReactionPost",
+      "discriminator": [
+        221,
+        243,
+        43,
+        57,
+        5,
+        170,
+        210,
+        29
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "CommentCreated",
+      "discriminator": [
+        27,
+        186,
+        105,
+        74,
+        47,
+        93,
+        2,
+        106
+      ]
+    },
+    {
+      "name": "CommentRemoved",
       "discriminator": [
         175,
-        175,
-        109,
-        31,
-        13,
-        152,
-        155,
-        237
-      ],
-      "accounts": [],
-      "args": []
+        2,
+        212,
+        183,
+        9,
+        62,
+        15,
+        71
+      ]
+    },
+    {
+      "name": "PostCreated",
+      "discriminator": [
+        209,
+        178,
+        232,
+        24,
+        158,
+        92,
+        77,
+        227
+      ]
+    },
+    {
+      "name": "PostRemoved",
+      "discriminator": [
+        97,
+        200,
+        61,
+        138,
+        39,
+        227,
+        90,
+        93
+      ]
+    },
+    {
+      "name": "ReactionCommentAdded",
+      "discriminator": [
+        96,
+        119,
+        157,
+        93,
+        42,
+        228,
+        51,
+        123
+      ]
+    },
+    {
+      "name": "ReactionCommentRemoved",
+      "discriminator": [
+        43,
+        61,
+        163,
+        248,
+        220,
+        89,
+        8,
+        112
+      ]
+    },
+    {
+      "name": "ReactionPostAdded",
+      "discriminator": [
+        131,
+        52,
+        187,
+        44,
+        172,
+        118,
+        67,
+        167
+      ]
+    },
+    {
+      "name": "ReactionPostRemoved",
+      "discriminator": [
+        223,
+        212,
+        90,
+        4,
+        66,
+        162,
+        132,
+        50
+      ]
     }
   ],
   "errors": [
@@ -36,28 +793,335 @@
     },
     {
       "code": 6002,
+      "name": "InvalidReactionState",
+      "msg": "Invalid reaction state"
+    },
+    {
+      "code": 6003,
       "name": "MaxLikesReached",
       "msg": "Maximum number of Likes Reached"
     },
     {
-      "code": 6003,
+      "code": 6004,
       "name": "MaxDislikesReached",
       "msg": "Maximum number of Dislikes Reached"
     },
     {
-      "code": 6004,
+      "code": 6005,
       "name": "MinLikesReached",
       "msg": "Minimum number of Likes Reached"
     },
     {
-      "code": 6005,
+      "code": 6006,
       "name": "MinDislikesReached",
       "msg": "Minimum number of Dislikes Reached"
     },
     {
-      "code": 6006,
+      "code": 6007,
+      "name": "InvalidOwner",
+      "msg": "Invalid owner"
+    },
+    {
+      "code": 6008,
       "name": "CommentTooLong",
       "msg": "Comment too Long"
+    },
+    {
+      "code": 6009,
+      "name": "TooManyComments",
+      "msg": "Maximum number of comments reached"
+    }
+  ],
+  "types": [
+    {
+      "name": "Comment",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "comment_author",
+            "type": "pubkey"
+          },
+          {
+            "name": "parent_post",
+            "type": "pubkey"
+          },
+          {
+            "name": "content",
+            "type": "string"
+          },
+          {
+            "name": "likes",
+            "type": "u64"
+          },
+          {
+            "name": "dislikes",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CommentCreated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "pubkey"
+          },
+          {
+            "name": "parent_post",
+            "type": "pubkey"
+          },
+          {
+            "name": "content",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CommentRemoved",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "pubkey"
+          },
+          {
+            "name": "parent_post",
+            "type": "pubkey"
+          },
+          {
+            "name": "content",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Post",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "post_author",
+            "type": "pubkey"
+          },
+          {
+            "name": "topic",
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "type": "string"
+          },
+          {
+            "name": "likes",
+            "type": "u64"
+          },
+          {
+            "name": "dislikes",
+            "type": "u64"
+          },
+          {
+            "name": "comment_count",
+            "type": "u32"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PostCreated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "post_author",
+            "type": "pubkey"
+          },
+          {
+            "name": "topic",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PostRemoved",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "post_author",
+            "type": "pubkey"
+          },
+          {
+            "name": "topic",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReactionComment",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "reaction_author",
+            "type": "pubkey"
+          },
+          {
+            "name": "parent_comment",
+            "type": "pubkey"
+          },
+          {
+            "name": "reaction",
+            "type": {
+              "defined": {
+                "name": "ReactionType"
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReactionCommentAdded",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "pubkey"
+          },
+          {
+            "name": "parent_comment",
+            "type": "pubkey"
+          },
+          {
+            "name": "reaction",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReactionCommentRemoved",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "pubkey"
+          },
+          {
+            "name": "parent_comment",
+            "type": "pubkey"
+          },
+          {
+            "name": "reaction",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReactionPost",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "reaction_author",
+            "type": "pubkey"
+          },
+          {
+            "name": "parent_post",
+            "type": "pubkey"
+          },
+          {
+            "name": "reaction",
+            "type": {
+              "defined": {
+                "name": "ReactionType"
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReactionPostAdded",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "pubkey"
+          },
+          {
+            "name": "parent_post",
+            "type": "pubkey"
+          },
+          {
+            "name": "reaction",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReactionPostRemoved",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "pubkey"
+          },
+          {
+            "name": "parent_post",
+            "type": "pubkey"
+          },
+          {
+            "name": "reaction",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReactionType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Like"
+          },
+          {
+            "name": "Dislike"
+          }
+        ]
+      }
     }
   ]
 }

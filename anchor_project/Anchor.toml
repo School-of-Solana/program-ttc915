@@ -1,18 +1,22 @@
 [toolchain]
 package_manager = "yarn"
+anchor_version = "0.31.1"
 
 [features]
 resolution = true
 skip-lint = false
 
 [programs.localnet]
-depress = "65eB9Pni2mbcafm3juEZgoN3P52CNwbnSKFChBy14K7D"
+depress = "5aQmhcFhVmgtmCdGtffRuMYL9R1WsARAtukzxUttPKKN"
+
+[programs.devnet]
+depress = "5aQmhcFhVmgtmCdGtffRuMYL9R1WsARAtukzxUttPKKN"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
