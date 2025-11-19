@@ -33,7 +33,11 @@ The platform showcases advanced Solana development techniques, including multipl
 
 ### Program Overview
 
-The DePress program uses four main account types: Post, Comment, ReactionPost, and ReactionComment. It implements nine core instructions and leverages multi-layer PDAs for deterministic, conflict-free relationships. Posts serve as root entities, with comments and reactions branching hierarchically while maintaining data integrity and ownership.
+The DePress program uses four main account types: Post, Comment, ReactionPost, and ReactionComment.
+
+It implements nine core instructions and leverages multi-layer PDAs for deterministic, conflict-free relationships.
+
+Posts serve as root entities, with comments and reactions branching hierarchically while maintaining data integrity and ownership.
 
 ### PDA Usage
 
@@ -119,7 +123,9 @@ pub enum ReactionType {
 
 ### Test Coverage
 
-The test suite covers all 10 instructions, including success cases and error conditions. It includes boundary testing for content lengths, authorization checks, and edge cases with Unicode characters and emojis.
+The test suite covers all 10 instructions, including success cases and error conditions.
+
+It includes boundary testing for content lengths, authorization checks, and edge cases with Unicode characters and emojis.
 
 #### Happy Path Tests
 
