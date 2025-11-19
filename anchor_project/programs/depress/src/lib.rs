@@ -16,10 +16,10 @@ declare_id!("65eB9Pni2mbcafm3juEZgoN3P52CNwbnSKFChBy14K7D");
 pub mod depress {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        msg!("Greetings from: {:?}", ctx.program_id);
-        Ok(())
-    }
+    // pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
+    //     msg!("Greetings from: {:?}", ctx.program_id);
+    //     Ok(())
+    // }
 
     pub fn post_add(
         ctx: Context<AddPostContext>,
@@ -64,6 +64,3 @@ pub mod depress {
         remove_reaction_comment(ctx)
     }
 }
-
-#[derive(Accounts)]
-pub struct Initialize {}
